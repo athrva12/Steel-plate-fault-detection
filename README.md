@@ -6,7 +6,7 @@
 
 Classify seven categories of steel plate surface defects from 27 numeric inspection features using five machine-learning algorithms. Compare their held-out classification performance and provide an interactive Streamlit frontend that *evaluates saved models without retraining*.
 
-## b. Dataset description
+## b. Dataset descriptions
 
 - **Name:** Steel Plates Faults, UCI Machine Learning Repository, dataset **198**.
 - **Dataset link:** https://archive.ics.uci.edu/dataset/198/steel+plates+faults
