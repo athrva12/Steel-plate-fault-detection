@@ -21,7 +21,7 @@ Classify seven categories of steel plate surface defects from 27 numeric inspect
 
 ## c. GitHub repository link
 
-**ADD YOUR REAL REPOSITORY LINK AFTER PUSHING:** `[https://github.com/YOUR-USERNAME/YOUR-REPOSITORY]`
+**ADD YOUR REAL REPOSITORY LINK AFTER PUSHING:** `[https://github.com/athrva12/Steel-plate-fault-detection]`
 
 ## d. Models used and comparison
 
