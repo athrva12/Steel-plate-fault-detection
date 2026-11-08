@@ -97,19 +97,7 @@ on a single test split.
 
 ## e. Live Streamlit App Link
 
-**ADD YOUR REAL APP URL:** `[https://your-app-name.streamlit.app]`
-
-### App features
-
-- Upload labeled CSV containing 27 features and target `fault_type`.
-- Choose any of five **saved, previously trained** models.
-- Display Accuracy, AUC, Precision, Recall, F1, MCC.
-- Show confusion matrix, classification report and class distribution.
-- Compare five models on the same uploaded file; download metrics.
-
-## f. BITS Virtual Lab proof
-
-Insert **one genuine screenshot** showing your work running in BITS Virtual Lab in the submitted PDF. Do not submit a mock or fabricated screenshot.
+**APP URL:** `[https://steelscope-fault-detection.streamlit.app/]`
 
 ## Project structure
 
