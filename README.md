@@ -21,38 +21,79 @@ Classify seven categories of steel plate surface defects from 27 numeric inspect
 
 ## c. GitHub repository link
 
-**ADD YOUR REAL REPOSITORY LINK AFTER PUSHING:** `[https://github.com/athrva12/Steel-plate-fault-detection]`
+`[https://github.com/athrva12/Steel-plate-fault-detection]`
+
 
 ## d. Models used and comparison
 
-| Model | Accuracy | AUC | Precision | Recall | F1 | MCC |
-|---|---|---|---|---|---|---|
-| Logistic Regression | See `model_metrics.csv` after training | | | | | |
-| Decision Tree | See `model_metrics.csv` after training | | | | | |
-| KNN | See `model_metrics.csv` after training | | | | | |
-| Naive Bayes | See `model_metrics.csv` after training | | | | | |
-| Support Vector Machine | See `model_metrics.csv` after training | | | | | |
+Five machine learning classification algorithms were
+implemented and evaluated on the Steel Plates Faults
+dataset using a stratified 80:20 train-test split.
 
-The scores are produced by `python train_models.py`. Values are **not pre-filled** until the actual dataset is downloaded and the models are trained.
+### Model Performance Comparison
 
-### Experimental design
+| ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
+|---|---:|---:|---:|---:|---:|---:|
+| Logistic Regression | 0.7198 | 0.9371 | 0.7464 | 0.7205 | 0.7309 | 0.6381 |
+| Decision Tree | 0.7224 | 0.9106 | 0.7670 | 0.7075 | 0.7280 | 0.6433 |
+| KNN | 0.7686 | 0.9220 | 0.7653 | 0.7866 | 0.7741 | 0.7044 |
+| Naive Bayes | 0.6144 | 0.9238 | 0.6392 | 0.7190 | 0.6383 | 0.5542 |
+| Support Vector Machine | 0.7532 | 0.9527 | 0.8013 | 0.7461 | 0.7673 | 0.6803 |
 
-- Stratified 80:20 train/test split; fixed `random_state=42`.
-- Preprocessing (StandardScaler) is fitted on training data only, within applicable scikit-learn pipelines.
-- Accuracy, macro one-versus-rest AUC, macro Precision, macro Recall, macro F1 and multiclass MCC.
-- Multiclass AUC uses `predict_proba`, with columns aligned to alphabetical class order.
-- Test data is never used to fit the pipeline, and the app only loads `.joblib` models for evaluation.
+### Model Performance Observations
 
-### Observations about model performance (write from your actual run)
+**Logistic Regression:**
+Achieved 71.98% accuracy and 0.9371 AUC. It provided
+reasonable classification results but performed below
+KNN and SVM in overall accuracy.
 
-| Model | Observation to complete after training |
-|---|---|
-| Logistic Regression | Compare macro F1 and AUC with the other models; comment on linearity assumptions. |
-| Decision Tree | Inspect class-wise mistakes and possible overfitting. |
-| KNN | Describe the effect of feature scaling and neighbors. |
-| Naive Bayes | Discuss the independence assumption and class-wise recall. |
-| SVM | Compare macro F1 and MCC and runtime against alternatives. |
-| Overall winner | Choose based on your measured metrics and justify using imbalance-aware metrics. |
+**Decision Tree:**
+Achieved 72.24% accuracy. Its performance was lower
+than KNN and SVM, suggesting that the selected tree
+configuration may not capture all fault patterns.
+
+**K-Nearest Neighbors (KNN):**
+Achieved the highest test accuracy of 76.86%,
+with an F1 score of 0.7741 and MCC of 0.7044.
+Distance-weighted voting improved its performance
+compared with the earlier configuration.
+
+**Naive Bayes:**
+Achieved 61.44% accuracy, the lowest among
+the five classifiers. Correlation between input
+features may contribute to its weaker performance.
+
+**Support Vector Machine (SVM):**
+Achieved 75.32% test accuracy and the highest
+AUC of 0.9527 and precision of 0.8013.
+It was a strong competitor to KNN.
+
+### Overall Winner
+
+KNN achieved the highest accuracy, recall, F1,
+and MCC on the held-out test dataset.
+
+However, SVM achieved the best overall performance
+during stratified 5-fold cross-validation.
+
+### 5-Fold Cross-Validation Results
+
+| Model | CV Accuracy | CV AUC | CV F1 | CV MCC |
+|---|---:|---:|---:|---:|
+| Logistic Regression | 0.7145 | 0.8969 | 0.7111 | 0.6317 |
+| Decision Tree | 0.7094 | 0.8803 | 0.7073 | 0.6281 |
+| KNN | 0.7455 | 0.9085 | 0.7432 | 0.6753 |
+| Naive Bayes | 0.5850 | 0.8697 | 0.5572 | 0.5217 |
+| Support Vector Machine | 0.7713 | 0.9269 | 0.7702 | 0.7053 |
+
+Based on cross-validation performance, SVM was
+selected as the preferred overall classifier.
+
+The cross-validation results demonstrate that model
+selection should consider performance across multiple
+training-validation splits rather than relying only
+on a single test split.
+
 
 ## e. Live Streamlit App Link
 
