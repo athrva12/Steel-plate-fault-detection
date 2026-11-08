@@ -139,10 +139,3 @@ python -m streamlit run app.py
 
 In the app, upload `test_data.csv`, choose each model and inspect the evaluation output. If the first dataset download is blocked, obtain the **official UCI ZIP** and run `python train_models.py --dataset "/path/to/steel+plates+faults.zip"`.
 
-## Deployment
-
-Push the repository including all five `.joblib` files and test CSV, visit https://share.streamlit.io/ or https://streamlit.io/cloud, choose the repo and `main` branch, set entrypoint to `app.py`, and deploy. The cloud app **does not need to download the UCI dataset** because trained models and test CSV are already committed.
-
-## Limitations and ethics
-
-This is a research/teaching dataset of **known fault types**, not a safety-approved live manufacturing system. Classes are imbalanced; accuracy alone can be misleading. Model scores may vary with environment and library versions. Only load trusted `.joblib` artifacts.
